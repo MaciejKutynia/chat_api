@@ -4,7 +4,7 @@ import * as process from 'process';
 
 async function bootstrap() {
   const corsOptions = {
-    origin: [`http://${process.env.DB_HOST}:80`, 'http://localhost:4200'],
+    origin: '*',
     credentials: true,
     allowedHeaders: 'Content-Type, Accept, Origin, Authorization, Cookie',
     preflightContinue: false,
