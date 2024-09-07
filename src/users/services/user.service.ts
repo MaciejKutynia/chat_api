@@ -14,7 +14,7 @@ export class UserService {
   async getUsersForChat(
     url_key: string,
     account_id: number,
-  ): Promise<UsersEntity> {
+  ): Promise<UsersEntity[]> {
     return this.usersRepository.find({ where: { url_key, account_id } });
   }
 
