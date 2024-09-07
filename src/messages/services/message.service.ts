@@ -11,7 +11,7 @@ export class MessageService {
     private readonly messageRepository: Repository<MessageEntity>,
   ) {}
 
-  async getMessages(url_key: string, account_id: number) {
+  public async getMessages(url_key: string, account_id: number) {
     const messages = await this.messageRepository.find({
       where: { account_id, url_key },
       order: { timestamp: 'ASC' },
@@ -29,10 +29,13 @@ export class MessageService {
     }));
   }
 
-  async createNewMessage(newMessage: NewMessageInterface, account_id: number) {
+  public async createNewMessage(
+    new_message: NewMessageInterface,
+    account_id: number,
+  ) {
     const timestamp = new Date().getTime();
     return this.messageRepository.save({
-      ...newMessage,
+      ...new_message,
       account_id,
       timestamp,
     });

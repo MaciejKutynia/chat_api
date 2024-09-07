@@ -11,15 +11,18 @@ export class ChatService {
     private readonly chatRepository: Repository<ChatEntity>,
   ) {}
 
-  async getChats(account_id: number) {
+  public async getChats(account_id: number): Promise<ChatEntity[]> {
     return this.chatRepository.find({ where: { account_id } });
   }
 
-  async getSpecificChat(url_key: string) {
+  public async getSpecificChat(url_key: string): Promise<ChatEntity> {
     return this.chatRepository.findOne({ where: { url_key } });
   }
 
-  async createNewChat(name: string, account_id: number) {
+  public async createNewChat(
+    name: string,
+    account_id: number,
+  ): Promise<ChatEntity> {
     const url_key = generateUUID();
     return this.chatRepository.save({ url_key, name, account_id });
   }

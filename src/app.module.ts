@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
-import { AccountModule } from './accounts/account.module';
 import { AuthMiddleware } from './auth/middlewares/auth.middleware';
 import { ChatModule } from './chats/chat.module';
 import { UserModule } from './users/user.module';
@@ -13,7 +12,6 @@ import { MessageModule } from './messages/message.module';
 @Module({
   imports: [
     AuthModule,
-    AccountModule,
     ChatModule,
     MessageModule,
     UserModule,

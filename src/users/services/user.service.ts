@@ -11,11 +11,17 @@ export class UserService {
     private readonly usersRepository: Repository<UsersEntity>,
   ) {}
 
-  async getUsersForChat(url_key: string, account_id: number) {
+  async getUsersForChat(
+    url_key: string,
+    account_id: number,
+  ): Promise<UsersEntity> {
     return this.usersRepository.find({ where: { url_key, account_id } });
   }
 
-  async createNewUser(userData: NewUserInterface, account_id: number) {
-    return this.usersRepository.save({ ...userData, account_id });
+  async createNewUser(
+    user_data: NewUserInterface,
+    account_id: number,
+  ): Promise<UsersEntity> {
+    return this.usersRepository.save({ ...user_data, account_id });
   }
 }
