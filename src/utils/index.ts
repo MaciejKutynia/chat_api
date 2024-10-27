@@ -3,7 +3,7 @@ const generateRandomChar = () => {
   return chars.charAt(Math.floor(Math.random() * chars.length));
 };
 
-const generateRandomSegment = (length: number) => {
+export const generateRandomSegment = (length: number) => {
   let segment = '';
   for (let i = 0; i < length; i++) {
     segment += generateRandomChar();

@@ -3,8 +3,10 @@ import { AppModule } from './app.module';
 import * as process from 'process';
 
 async function bootstrap() {
+  const is_production = process.env.NODE_ENV === 'production';
+
   const corsOptions = {
-    origin: '*',
+    origin: is_production ? ['https://chat.mkwsieci.pl'] : '*',
     credentials: true,
     allowedHeaders: 'Content-Type, Accept, Origin, Authorization, Cookie',
     preflightContinue: false,
